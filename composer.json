@@ -1,6 +1,6 @@
 {
     "description": "CookieBar content element for Neos",
-    "type": "typo3-neos-plugin",
+    "type": "typo3-flow-plugin",
     "name": "lelesys/cookiebar",
     "require": {
         "typo3/neos": ">=2.0"
