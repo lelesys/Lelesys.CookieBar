@@ -6,8 +6,8 @@
         "typo3/neos": ">=2.0"
     },
     "autoload": {
-        "psr-4": {
-            "Lelesys\\CookieBar\\": "Classes/"
+        "psr-0": {
+            "Lelesys\\CookieBar": "Classes/"
         }
     },
     "extra": {
