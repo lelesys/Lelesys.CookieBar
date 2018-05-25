@@ -1,9 +1,9 @@
 {
     "description": "CookieBar content element for Neos",
-    "type": "neos-plugin",
+    "type": "typo3-neos-plugin",
     "name": "lelesys/cookiebar",
     "require": {
-        "neos/neos": "^3.3"
+        "typo3/neos": ">=2.0"
     },
     "autoload": {
         "psr-4": {
