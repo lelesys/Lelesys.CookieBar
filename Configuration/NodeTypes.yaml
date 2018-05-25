@@ -1,9 +1,9 @@
 'Lelesys.CookieBar:GlobalContent':
   superTypes:
-    'Neos.Neos:Document': true
+    'TYPO3.Neos:Document': true
   childNodes:
     main:
-      type: 'Neos.Neos:ContentCollection'
+      type: 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Gobal elements'
     icon: 'icon-folder-open'
@@ -11,8 +11,8 @@
 
 'Lelesys.CookieBar:CookieBar':
   superTypes:
-    'Neos.Neos:Content': true
-    'Neos.NodeTypes:TextMixin': true
+    'TYPO3.Neos:Content': true
+    'TYPO3.Neos.NodeTypes:TextMixin': true
   ui:
     label: 'Cookie Bar'
     icon: 'icon-picture'
@@ -54,7 +54,7 @@
         label: 'Template'
         inspector:
           group: 'cookieBar'
-          editor: 'Neos.Neos/Inspector/Editors/CodeEditor'
+          editor: 'TYPO3.Neos/Inspector/Editors/CodeEditor'
           editorOptions:
             buttonLabel: 'Edit Template'
     domPosition:
@@ -64,7 +64,7 @@
         label: 'Position'
         inspector:
           group: 'cookieBar'
-          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
             values:
               'top':

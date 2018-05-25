@@ -19,23 +19,23 @@ prototype(Lelesys.CookieBar:CookieBar) {
 	messageHtml.@process.1 = ${String.replace(value, '###OK_BUTTON###', this.buttonHtml)}
 	finalHtml.@process.1 = ${String.replace(value, '###TEXT###', this.messageHtml)}
 	finalHtml.@process.2 = ${String.replace(value, '###POSITION###', q(node).property('domPosition'))}
-	finalHtml.@process.3 = Neos.Neos:ConvertUris
+	finalHtml.@process.3 = TYPO3.Neos:ConvertUris
 }
 
 
-prototype(Neos.Neos:Page) {
-	cookieBar = Neos.Fusion:Collection
+prototype(TYPO3.Neos:Page) {
+	cookieBar = TYPO3.TypoScript:Collection
 	cookieBar {
 		collection = ${q(site).children('[instanceof Lelesys.CookieBar:GlobalContent]').children('main').children('[instanceof Lelesys.CookieBar:CookieBar]')}
-		# Render every item by its own Fusion object
-		itemRenderer = Neos.Neos:ContentCase
+		# Render every item by its own TypoScript object
+		itemRenderer = TYPO3.Neos:ContentCase
 		itemName = 'node'
 		iterationName = 'iterator'
 		@position = 'before cookieBarJs'
 		@if.onlyRenderWhenNotInBackend = ${documentNode.context.inBackend == false}
 	}
 
-	cookieBarJs = Neos.Fusion:Template
+	cookieBarJs = TYPO3.TypoScript:Template
 	cookieBarJs {
 		templatePath = 'resource://Lelesys.CookieBar/Private/Templates/NodeTypes/CookieBar.html'
 		sectionName = 'cookieBarJs'
