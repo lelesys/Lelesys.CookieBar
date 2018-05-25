@@ -1,0 +1,18 @@
+{
+    "description": "CookieBar content element for Neos",
+    "type": "neos-plugin",
+    "name": "lelesys/cookiebar",
+    "require": {
+        "neos/neos": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lelesys\\CookieBar\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Lelesys.CookieBar"
+        }
+    }
+}

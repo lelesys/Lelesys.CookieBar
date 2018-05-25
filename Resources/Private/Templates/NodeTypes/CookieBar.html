@@ -1,0 +1,66 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+
+<f:if condition="{neos:rendering.inBackend()}">
+    <f:then>
+        <div{attributes -> f:format.raw()}>
+            {neos:contentElement.editable(property: 'message')}
+        </div>
+    </f:then>
+    <f:else>
+        {finalHtml -> f:format.raw()}
+    </f:else>
+</f:if>
+
+<f:section name="cookieBarJs">
+    <script>
+        function cookieBar_setCookie(e,o,t){var c=new Date;c.setTime(c.getTime()+24*t*60*60*1e3);var n="expires="+c.toUTCString();document.cookie=e+"="+o+";"+n+";path=/"}function cookieBar_getCookie(e){for(var o=e+"=",t=document.cookie.split(";"),c=0;c<t.length;c++){for(var n=t[c];" "==n.charAt(0);)n=n.substring(1);if(0==n.indexOf(o))return n.substring(o.length,n.length)}return""}var cookieBar_check=function(){var e=cookieBar_getCookie("cbAccepted"),o=document.getElementById("cookieBar");o.style.display="accepted"!=e?"block":"none"},cookieBar_doAccept=function(){cookieBar_setCookie("cbAccepted","accepted",365),document.getElementById("cookieBar").style.display="none"};"complete"===document.readyState||"loading"!==document.readyState&&!document.documentElement.doScroll?cookieBar_check():document.addEventListener("DOMContentLoaded",cookieBar_check);
+    </script>
+</f:section>
+<f:comment>
+    <script>
+        function cookieBar_setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function cookieBar_getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        var cookieBar_check = function() {
+            var cookieBar_accepted = cookieBar_getCookie('cbAccepted');
+            var cookieBarElement = document.getElementById('cookieBar');
+            if (cookieBar_accepted != 'accepted') {
+                cookieBarElement.style.display = 'block';
+            } else {
+                cookieBarElement.style.display = 'none';
+            }
+        };
+        var cookieBar_doAccept = function() {
+            cookieBar_setCookie('cbAccepted', 'accepted', 365);
+            var cookieBarElement = document.getElementById('cookieBar');
+            cookieBarElement.style.display = 'none';
+        };
+
+        if (
+            document.readyState === "complete" ||
+            (document.readyState !== "loading" && !document.documentElement.doScroll)
+        ) {
+            cookieBar_check();
+        } else {
+          document.addEventListener("DOMContentLoaded", cookieBar_check);
+        }
+    </script>
+</f:comment>
