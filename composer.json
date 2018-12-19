@@ -3,7 +3,7 @@
     "type": "neos-plugin",
     "name": "lelesys/cookiebar",
     "require": {
-        "neos/neos": "^3.3"
+        "neos/neos": "^3.3 || ^4.0"
     },
     "autoload": {
         "psr-4": {
