@@ -13,7 +13,7 @@
 
 <f:section name="cookieBarJs">
     <script>
-        function cookieBar_setCookie(e,o,t){var c=new Date;c.setTime(c.getTime()+24*t*60*60*1e3);var n="expires="+c.toUTCString();document.cookie=e+"="+o+";"+n+";path=/"}function cookieBar_getCookie(e){for(var o=e+"=",t=document.cookie.split(";"),c=0;c<t.length;c++){for(var n=t[c];" "==n.charAt(0);)n=n.substring(1);if(0==n.indexOf(o))return n.substring(o.length,n.length)}return""}var cookieBar_check=function(){var e=cookieBar_getCookie("cbAccepted"),o=document.getElementById("cookieBar");o.style.display="accepted"!=e?"block":"none"},cookieBar_doAccept=function(){cookieBar_setCookie("cbAccepted","accepted",365),document.getElementById("cookieBar").style.display="none"};"complete"===document.readyState||"loading"!==document.readyState&&!document.documentElement.doScroll?cookieBar_check():document.addEventListener("DOMContentLoaded",cookieBar_check);
+        function cookieBar_setCookie(e,o,t){var c=new Date;c.setTime(c.getTime()+24*t*60*60*1e3);var n="expires="+c.toUTCString();document.cookie=e+"="+o+";"+n+";path=/"}function cookieBar_getCookie(e){for(var o=e+"=",t=document.cookie.split(";"),c=0;c<t.length;c++){for(var n=t[c];" "==n.charAt(0);)n=n.substring(1);if(0==n.indexOf(o))return n.substring(o.length,n.length)}return""}var cookieBar_check=function(){var e=cookieBar_getCookie("cbAccepted"),o=document.getElementById("cookieBar");"accepted"!=e?null!==o&&(o.style.display="block"):null!==o&&(o.style.display="none")},cookieBar_doAccept=function(){cookieBar_setCookie("cbAccepted","accepted",365);var e=document.getElementById("cookieBar");null!==e&&(e.style.display="none")};"complete"===document.readyState||"loading"!==document.readyState&&!document.documentElement.doScroll?cookieBar_check():document.addEventListener("DOMContentLoaded",cookieBar_check);
     </script>
 </f:section>
 <f:comment>
@@ -43,15 +43,21 @@
             var cookieBar_accepted = cookieBar_getCookie('cbAccepted');
             var cookieBarElement = document.getElementById('cookieBar');
             if (cookieBar_accepted != 'accepted') {
-                cookieBarElement.style.display = 'block';
+                if (cookieBarElement !== null) {
+                    cookieBarElement.style.display = 'block';
+                }
             } else {
-                cookieBarElement.style.display = 'none';
+                if (cookieBarElement !== null) {
+                    cookieBarElement.style.display = 'none';
+                }
             }
         };
         var cookieBar_doAccept = function() {
             cookieBar_setCookie('cbAccepted', 'accepted', 365);
             var cookieBarElement = document.getElementById('cookieBar');
-            cookieBarElement.style.display = 'none';
+            if (cookieBarElement !== null) {
+                cookieBarElement.style.display = 'none';
+            }
         };
 
         if (
