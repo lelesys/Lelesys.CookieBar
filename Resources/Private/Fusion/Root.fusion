@@ -4,7 +4,8 @@ root.globalContent {
 	renderPath = '/rawContent'
 }
 
-prototype(Lelesys.CookieBar:CookieBar) {
+prototype(Lelesys.CookieBar:CookieBar) < prototype(Neos.Neos:Content) {
+	templatePath = 'resource://Lelesys.CookieBar/Private/Templates/NodeTypes/CookieBar.html'
 	htmlTemplate = ${q(node).property('template')}
 	posButtonStart =  ${String.indexOf(this.htmlTemplate, 'BUTTON_START') + 15}
 	posButtonEnd =  ${String.indexOf(this.htmlTemplate, 'BUTTON_END') - 3}
