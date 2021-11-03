@@ -17,6 +17,7 @@ prototype(Lelesys.CookieBar:CookieBar) < prototype(Neos.Neos:Content) {
 	finalHtml = ${String.substring(this.htmlTemplate, this.posMainStart, this.posMainEnd)}
 
 	messageHtml = ${q(node).property('message')}
+	message = ${q(node).property('message')}
 	messageHtml.@process.1 = ${String.replace(value, '###OK_BUTTON###', this.buttonHtml)}
 	finalHtml.@process.1 = ${String.replace(value, '###TEXT###', this.messageHtml)}
 	finalHtml.@process.2 = ${String.replace(value, '###POSITION###', q(node).property('domPosition'))}
